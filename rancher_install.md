@@ -95,4 +95,6 @@ helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
 helm install rancher rancher-stable/rancher --namespace cattle-system --set hostname=<example.com> --set ingress.tls.source=letsEncrypt --set letsEncrypt.email=<valid_email> --version 2.5.10
 ```
 
->Access to a Rancher server may take few minutes after installing Rancher
+>Access to a Rancher server and get certificate may take few minutes after installing Rancher
+
+For deploy Kubernetes cluster using a node driver see [next steps](rancher_hetzner.md)
