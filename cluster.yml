@@ -1,0 +1,46 @@
+nodes:
+- address: <external_ip>
+  port: "22"
+  internal_address: <internal_ip>
+  role:
+  - controlplane
+  - worker
+  - etcd
+  user: root
+  docker_socket: /var/run/docker.sock
+  ssh_key_path: /root/.ssh/rancher_server
+services:
+  etcd:
+    uid: 0
+    gid: 0
+  kube-api:
+    service_cluster_ip_range: 10.43.0.0/16
+    service_node_port_range: 30000-32767
+    pod_security_policy: false
+    always_pull_images: false
+  kube-controller:
+    cluster_cidr: 10.42.0.0/16
+    service_cluster_ip_range: 10.43.0.0/16
+  kubelet:
+    cluster_domain: cluster.local
+    cluster_dns_server: 10.43.0.10
+    fail_swap_on: false
+    generate_serving_certificate: false
+network:
+  canal_network_provider:
+    iface: <internal_iface_name>
+  options:
+    flannel_backend_type: vxlan
+  plugin: canal
+  mtu: 0
+authentication:
+  strategy: x509
+authorization:
+  mode: rbac
+kubernetes_version: "v1.20.11-rancher1-1"
+cluster_name: "Rancher-server"
+prefix_path: /etc/kubernetes
+addon_job_timeout: 0
+restore:
+  restore: false
+enable_cri_dockerd: true
