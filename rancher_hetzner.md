@@ -4,13 +4,13 @@
 Head to the "Global" in Rancher WEB UI and click on "Tools" > "Drivers" > "Node Drivers" > "Add Node Driver" and fill in 
 the appropriate fields.
 
-- Download URL:
+- Download URL:\
 `https://github.com/JonasProgrammer/docker-machine-driver-hetzner/releases/download/3.5.0/docker-machine-driver-hetzner_3.5.0_linux_amd64.tar.gz`
 
-- Custom UI URL:
+- Custom UI URL:\
 `https://storage.googleapis.com/hcloud-rancher-v2-ui-driver/component.js`
 
-- Whitelist Domains:
+- Whitelist Domains:\
 `storage.googleapis.com`
 
 ## Creating the node templates (control and workers)

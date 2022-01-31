@@ -63,9 +63,12 @@ Run `rke up` in directory with [cluster.yml](cluster.yml) file created above.
 > :warning: After deploying the cluster, two new files will be appear.
 >`cluster.rkestate` and `kube_config_cluster.yml` is private files because they contain secrets!
 - `cluster.rkestate` - the state of the cluster so that when you run `rke up` again later RKE knows the current state
-- `kube_config_cluster.yml` - the kubeconfig file that you need to use to connect to the cluster with kubectl
+- `kube_config_cluster.yml` - the kubeconfig file that you need to use to manage the cluster with kubectl
 
-# Install kubectl
+Run `mkdir ~/.kube/ && mv kube_config_cluster.yml ~/.kube/config && chmod -R 600 ~/.kube/`\
+to further configure Rancher server.
+
+## Install kubectl
 ```
 curl -LO https://dl.k8s.io/release/v1.21.6/bin/linux/amd64/kubectl    # download binary kubectl
 curl -LO "https://dl.k8s.io/v1.21.6/bin/linux/amd64/kubectl.sha256"   # download checksum file
