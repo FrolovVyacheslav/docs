@@ -57,7 +57,7 @@ rke config --list-version --all
 ### Creating the cluster configuration file
 This file describe RKE cluster. See the example [cluster.yml](cluster.yml) file
 
-### Deploy kubernetes cluster & grant control access
+### Deploy RKE cluster & grant control access
 Run `rke up` in directory with [cluster.yml](cluster.yml) file created above.
 
 > :warning: After deploying the cluster, two new files will be appear.
@@ -66,29 +66,29 @@ Run `rke up` in directory with [cluster.yml](cluster.yml) file created above.
 - `kube_config_cluster.yml` - the kubeconfig file that you need to use to manage the cluster with kubectl
 
 Run `mkdir ~/.kube/ && mv kube_config_cluster.yml ~/.kube/config && chmod -R 600 ~/.kube/`\
-to further configure Rancher server.
+to further configure Rancher server like install [cert-manager](https://cert-manager.io/).
 
-## Install kubectl
+### Install kubectl
 ```
 curl -LO https://dl.k8s.io/release/v1.21.6/bin/linux/amd64/kubectl    # download binary kubectl
 curl -LO "https://dl.k8s.io/v1.21.6/bin/linux/amd64/kubectl.sha256"   # download checksum file
 echo "$(<kubectl.sha256) kubectl" | sha256sum --check                 # check
-install -m 0755 kubectl /usr/local/bin/kubectl        # install kubectl
+install -m 0755 kubectl /usr/local/bin/kubectl && rm kubectl          # install kubectl
 kubectl version --client
 ```
 
-# Install helm
+### Install helm
 ```
 wget -O helm https://get.helm.sh/helm-v3.7.1-linux-amd64.tar.gz
-tar -zxvf helm
-mv linux-amd64/helm /usr/local/bin/
+tar -zxf helm
+mv linux-amd64/helm /usr/local/bin/ 77 rm -r linux-amd64
 helm version
 ```
 
-# Install cert-manager
+### Install cert-manager
 `kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.6.0/cert-manager.yaml`
 
-# Install Rancher
+### Install Rancher
 ```
 kubectl create namespace cattle-system
 helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
