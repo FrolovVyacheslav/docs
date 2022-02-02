@@ -1,4 +1,4 @@
-### Creating Kubernetes Didcomm Deployments
+# Creating Kubernetes Didcomm Deployments
 
 ### Secrets
 >Kubernetes stores secrets in base64 format.
