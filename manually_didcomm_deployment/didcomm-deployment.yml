@@ -83,7 +83,7 @@ kind: Service
 metadata:
   name: didcomm-service
 spec:
-  type:ClusterIP
+  type: ClusterIP
   selector:
     app: didcomm
   ports:
