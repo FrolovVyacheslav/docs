@@ -8,12 +8,12 @@ To deploy didcomm app firstly need to create a Memcached instance, Redis and Pos
 Mediator contain required variables such as MEMCACHED, DATABASE_HOST, MSG_DELIVERY_SERVICES (Redis host) e.t.c.
 For more info see: https://github.com/Sirius-social/didcomm/blob/k8s-deploy-docs/docs/AdminGuide.md
 
-# Create PostreSQL database, user and password for mediator
-Connect to exist PostreSQL and run:
-`createuser --interactive didcomm_user -W`
-Set role attributes and password.
-`createdb didcomm_db -O didcomm_user`
-Or see Ansible PostgreSQL-master role that which will create everything you need on this step.
+# Create PostgreSQL database, user and password for mediator
+Connect to exist PostgreSQL and run:\
+`createuser --interactive didcomm_user -W`\
+Set role attributes and password.\
+`createdb didcomm_db -O didcomm_user`\
+Or see Ansible PostgreSQL-master role that which will create everything you need on this step.\
 To check the changes run `\l+` in psql cli to list all users and databases.
  
 ## Create Memcached instance:
