@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: didcomm-configmap
+data:
+  msg_services: |
+    redis-1-service
+    redis-2-service
+  memcached: memcached-service
+  db_host: postresql-service

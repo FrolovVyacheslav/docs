@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: didcomm-deployment
+  labels:
+    app: didcomm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: didcomm
+  template:
+    metadata:
+      labels:
+        app: didcomm
+    spec:
+      containers:
+      - name: didcomm
+        image: socialsirius/didcomm
+        ports:
+        - containerPort: 8000
+        env:
+# Database name env:
+        - name: DATABASE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: didcomm-secret
+              key: db_name
+# Database host env:
+        - name: DATABASE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: didcomm-configmap
+              key: db_host
+# Database user env:
+        - name: DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              name: didcomm-secret
+              key: db_username
+# Database password env:
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: didcomm-secret
+              key: db_password
+# Seed env:
+        - name: SEED             
+          valueFrom:
+            secretKeyRef:
+              name: didcomm-secret
+              key: seed
+# fcm api key env:
+        - name: FCM_API_KEY             
+          valueFrom:
+            secretKeyRef:
+              name: didcomm-secret
+              key: fcm_api_key
+# fcm sender id env:
+        - name: FCM_SENDER_ID            
+          valueFrom:
+            secretKeyRef:
+              name: didcomm-secret
+              key: fcm_sender_id
+# Message delivery services (Redis) env:
+        - name: MSG_DELIVERY_SERVICES
+          valueFrom:
+            configMapKeyRef:
+              name: didcomm-configmap
+              key: msg_services
+# Memcached service env:
+        - name: MEMCACHED
+          valueFrom:
+            configMapKeyRef:
+              name: didcomm-configmap
+              key: memcached
+# Loglevel env:
+        - name: LOGLEVEL
+          value: "DEBUG"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: didcomm-service
+spec:
+  type:ClusterIP
+  selector:
+    app: didcomm
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
