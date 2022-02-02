@@ -20,7 +20,7 @@ See [example of Deployment file](didcomm-deployment.yml)
 First of all deploy Secrets and ConfigMap files, database and redis instances, and than Didcomm Deployment.
 Run `kubectl apply -f <file.yml>`
 
-## TL;TR
+## TL;DR
 To Create certificate see [create-CA](../create-CA.md)
 
 To deploy Didcomm application in Rancher see [mediator](mediator.md) file
