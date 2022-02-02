@@ -23,4 +23,4 @@ Run `kubectl apply -f <file.yml>`
 ## TL;TR
 To Create certificate see [create-CA](../create-CA.md)
 
-To deploy Didcomm application in Rancher see [mediator](../mediator.md) file
+To deploy Didcomm application in Rancher see [mediator](mediator.md) file
