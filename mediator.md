@@ -49,8 +49,6 @@ In Rancher WEB UI go to cluster -> "Default" project, click to "Namespaces" -> "
 namespace.
 
 ## Create a Secrets which contain a variables:
-> Note: Secrets created or edited with `kubectl` do not show up in Rancher UI
-
 Go to "Resources" -> "Secrets" and click "Add Secret"
 - `Name`: name of the secret. For example didcomm-env
 - `Scope`: availability of the created secret in the cluster (to all namespaces or specify a single namespace)
