@@ -1,9 +1,12 @@
 # Didcomm Helm Chart
 
+---
 ## Prerequisites
 
 To deploy didcomm mediator in cluster firstly need to create a Memcached instance, Redis and PostgreSQL database. 
 Mediator contain required variables such as MEMCACHED, DATABASE_HOST, MSG_DELIVERY_SERVICES (Redis hosts) e.t.c.
+
+To generate ```seed``` value run ```tr -dc A-Za-z0-9 </dev/urandom | head -c 32 ; echo ''```
 
 For more info see: https://github.com/Sirius-social/didcomm/blob/k8s-deploy-docs/docs/AdminGuide.md
 
