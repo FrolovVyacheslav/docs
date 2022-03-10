@@ -20,10 +20,10 @@ More info [Projects and Namespaces with Rancher](https://rancher.com/docs/ranche
 
 ├── [Chart.yaml](Chart.yaml)\
 ├── [templates](templates)\
-│   ├── [didcomm-configmap.yml](didcomm-configmap.yml)\
-│   ├── [didcomm-deployment.yml](didcomm-deployment.yml)\
-│   ├── [didcomm-secret.yml](didcomm-secret.yml)\
-│   └── [didcomm-service.yml](didcomm-service.yml)\
+│   ├── [didcomm-configmap.yml](templates/didcomm-configmap.yml)\
+│   ├── [didcomm-deployment.yml](templates/didcomm-deployment.yml)\
+│   ├── [didcomm-secret.yml](templates/didcomm-secret.yml)\
+│   └── [didcomm-service.yml](templates/didcomm-service.yml)\
 └── [values.yml](values.yml)
 
 helm install <release_name> helm-didcomm --namespace <release_namespace> \
