@@ -27,7 +27,7 @@ More info [Projects and Namespaces with Rancher](https://rancher.com/docs/ranche
 └── [values.yml](values.yml)
 
 ## Running command
-
+```
 helm install <release_name> helm-didcomm --namespace <release_namespace> \
 --set dbPasswd=<pgsql_password> \
 --set dbUser=<pgsql_user> \
@@ -36,3 +36,4 @@ helm install <release_name> helm-didcomm --namespace <release_namespace> \
 --set psqlHost=<postgresql_host> \
 --set memcached=<memcached_service> \
 --set redis=<redis_service>
+```
