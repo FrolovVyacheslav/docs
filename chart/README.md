@@ -18,7 +18,7 @@ More info [Projects and Namespaces with Rancher](https://rancher.com/docs/ranche
 ## Explain Helm Chart
 ### Chart hierarchy
 
-├── Chart.yaml\
+├── [Chart.yaml](Chart.yaml)\
 ├── templates\
 │   ├── didcomm-configmap.yml\
 │   ├── didcomm-deployment.yml\
