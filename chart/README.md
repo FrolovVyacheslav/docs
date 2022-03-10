@@ -19,12 +19,12 @@ More info [Projects and Namespaces with Rancher](https://rancher.com/docs/ranche
 ### Chart hierarchy
 
 ├── [Chart.yaml](Chart.yaml)\
+└── [values.yml](values.yml)\
 ├── [templates](templates)\
-│   ├── [didcomm-configmap.yml](templates/didcomm-configmap.yml)\
-│   ├── [didcomm-deployment.yml](templates/didcomm-deployment.yml)\
-│   ├── [didcomm-secret.yml](templates/didcomm-secret.yml)\
-│   └── [didcomm-service.yml](templates/didcomm-service.yml)\
-└── [values.yml](values.yml)
+   ├── [didcomm-configmap.yml](templates/didcomm-configmap.yml)\
+   ├── [didcomm-deployment.yml](templates/didcomm-deployment.yml)\
+   ├── [didcomm-secret.yml](templates/didcomm-secret.yml)\
+   └── [didcomm-service.yml](templates/didcomm-service.yml)
 
 ## Running command
 ```
