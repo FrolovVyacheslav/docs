@@ -20,11 +20,11 @@ More info [Projects and Namespaces with Rancher](https://rancher.com/docs/ranche
 
 ├── [Chart.yaml](Chart.yaml)\
 ├── [templates](templates)\
-│   ├── didcomm-configmap.yml\
-│   ├── didcomm-deployment.yml\
-│   ├── didcomm-secret.yml\
-│   └── didcomm-service.yml\
-└── values.yml
+│   ├── [didcomm-configmap.yml](didcomm-configmap.yml)\
+│   ├── [didcomm-deployment.yml](didcomm-deployment.yml)\
+│   ├── [didcomm-secret.yml](didcomm-secret.yml)\
+│   └── [didcomm-service.yml](didcomm-service.yml)\
+└── [values.yml](values.yml)
 
 helm install <release_name> helm-didcomm --namespace <release_namespace> \
 --set dbPasswd=<pgsql_password> \
