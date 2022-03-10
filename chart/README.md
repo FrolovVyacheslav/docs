@@ -19,7 +19,7 @@ More info [Projects and Namespaces with Rancher](https://rancher.com/docs/ranche
 ### Chart hierarchy
 
 ├── [Chart.yaml](Chart.yaml)\
-├── templates\
+├── [templates]()\
 │   ├── didcomm-configmap.yml\
 │   ├── didcomm-deployment.yml\
 │   ├── didcomm-secret.yml\
