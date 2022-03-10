@@ -1,0 +1,20 @@
+containerImage: socialsirius/didcomm:latest
+replicaCount: 2
+
+# Service port
+service.Port: 8000
+
+# Create secrets and environment values
+dbPasswd: ""
+dbUser: ""
+dbName: ""
+fcmApi: ""
+fcmID: ""
+seed: ""
+
+# Create ConfigMap values
+redis: ""
+memcached: ""
+psqlHost: ""
+
+debug: INFO

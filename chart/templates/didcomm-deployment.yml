@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        image: socialsirius/didcomm:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-secret
+              key: db_name
+        - name: DATABASE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Release.Name }}-configmap
+              key: db_host
+        - name: DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-secret
+              key: db_username
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-secret
+              key: db_password
+        - name: MSG_DELIVERY_SERVICES
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Release.Name }}-configmap
+              key: msg_services
+        - name: MEMCACHED
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Release.Name }}-configmap
+              key: memcached
+        - name: SEED
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-secret
+              key: seed
+{{- if .Values.fcmApi }}
+        - name: FCM_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-secret
+              key: fcm_api_key
+{{- end }}
+{{- if .Values.fcmID }}
+        - name: FCM_SENDER_ID            
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-secret
+              key: fcm_sender_id
+{{- end }}
+        - name: LOGLEVEL
+          value: {{ .Values.debug }}
