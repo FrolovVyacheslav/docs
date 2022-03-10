@@ -1,7 +1,5 @@
----
 # Didcomm Helm Chart
 
----
 ## Prerequisites
 
 To deploy didcomm mediator in cluster firstly need to create a Memcached instance, Redis and PostgreSQL database. 
