@@ -40,4 +40,11 @@ helm install <release_name> helm-didcomm --namespace <release_namespace> \
 --set memcached=<memcached_service> \
 --set redis=<redis_service>
 ```
-To create staging certificate issuer set ```letsEncrypt.environment=staging```
+
+## LetsEncript certificate request
+To create certificate issuer ```--set``` variables below:
+
+```
+letsEncrypt.environment=staging
+letsEncrypt.email=<valid-email>
+```

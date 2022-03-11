@@ -12,7 +12,7 @@ apiVersion: cert-manager.io/v1
     {{- end }}
 kind: Issuer
 metadata:
-  name: {{ .Values.ingress.tls.source }}-{{ .Values.tls.environment }}
+  name: {{ .Values.ingress.tls.source }}-{{ .Values.ingress.tls.environment }}
 spec:
   acme:
     {{- if eq .Values.tls.environment "production" }}
