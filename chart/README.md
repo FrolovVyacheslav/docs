@@ -1,6 +1,7 @@
 # Didcomm Helm Chart
 
 ## Prerequisites
+
 To deploy didcomm mediator in cluster firstly need to create a Memcached instance, Redis and PostgreSQL database. 
 Mediator contain required variables such as MEMCACHED, DATABASE_HOST, MSG_DELIVERY_SERVICES (Redis hosts) e.t.c.
 
@@ -39,3 +40,4 @@ helm install <release_name> helm-didcomm --namespace <release_namespace> \
 --set memcached=<memcached_service> \
 --set redis=<redis_service>
 ```
+To create staging certificate issuer set ```letsEncrypt.environment=staging```

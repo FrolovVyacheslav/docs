@@ -1,6 +1,14 @@
 containerImage: socialsirius/didcomm:latest
 replicaCount: 2
 
+tls: ingress
+
+ingress:
+  tls:
+    source: letsEncrypt
+    secretName: tls-didcomm-ingress
+    environment: production
+
 # Service port
 service.Port: 8000
 
