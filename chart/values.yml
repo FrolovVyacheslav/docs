@@ -8,6 +8,7 @@ ingress:
     source: letsEncrypt
     secretName: tls-didcomm-ingress
     environment: production
+    requestTimeout: true
 
 # Service port
 service.Port: 8000

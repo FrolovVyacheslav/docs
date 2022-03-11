@@ -47,4 +47,5 @@ To create certificate issuer ```--set``` variables below:
 ```
 letsEncrypt.environment=staging
 letsEncrypt.email=<valid-email>
+hostname=<didcomm-domain>
 ```
