@@ -1,7 +1,4 @@
-version: 1.0.0
-appVersion: 1.0.0
-name: test-helm-chart00
-
+name: helm-chart
 maintainers:
-  - name: SocialSirius
-    email: support@socialsirius.com
+  name: SocialSirius
+version: 1.0.1

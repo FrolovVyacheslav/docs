@@ -1,29 +1,9 @@
-containerImage: socialsirius/didcomm:latest
-replicaCount: 2
-
-tls: ingress
-
+container:
+  image: socialsirius/didcomm
+replicaCount: 1 
 ingress:
-  tls:
-    source: letsEncrypt
-    secretName: tls-didcomm-ingress
-    environment: production
-    requestTimeout: true
-
-# Service port
-service.Port: 8000
-
-# Create secrets and environment values
-dbPasswd: ""
-dbUser: ""
-dbName: ""
-fcmApi: ""
-fcmID: ""
-seed: ""
-
-# Create ConfigMap values
-redis: ""
-memcached: ""
-psqlHost: ""
-
-debug: INFO
+  secretName: tls-didcomm-ingress
+  env: staging
+service:
+  port: 8000
+debug: DEBUG

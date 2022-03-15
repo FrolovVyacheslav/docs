@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-deployment
+  name: {{ .Release.Name }}
   namespace: {{ .Release.Namespace }}
   labels:
     app: {{ .Release.Name }}
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ .Release.Name }}
-        image: socialsirius/didcomm:latest
+        image: socialsirius/didcomm
         ports:
         - containerPort: 8000
         env:
@@ -56,19 +56,19 @@ spec:
             secretKeyRef:
               name: {{ .Release.Name }}-secret
               key: seed
-{{- if .Values.fcmApi }}
+        {{- if .Values.fcmApi }}
         - name: FCM_API_KEY
           valueFrom:
             secretKeyRef:
               name: {{ .Release.Name }}-secret
               key: fcm_api_key
-{{- end }}
-{{- if .Values.fcmID }}
+        {{- end }}
+        {{- if .Values.fcmID }}
         - name: FCM_SENDER_ID            
           valueFrom:
             secretKeyRef:
               name: {{ .Release.Name }}-secret
               key: fcm_sender_id
-{{- end }}
+        {{- end }}
         - name: LOGLEVEL
           value: {{ .Values.debug }}

@@ -31,7 +31,7 @@ More info [Projects and Namespaces with Rancher](https://rancher.com/docs/ranche
 
 ## Running command
 ```
-helm install <release_name> helm-didcomm --namespace <release_namespace> \
+helm install <release_name> <chart-dir> --namespace <release_namespace> \
 --set dbPasswd=<pgsql_password> \
 --set dbUser=<pgsql_user> \
 --set dbName=<pgsql_name> \
@@ -42,10 +42,9 @@ helm install <release_name> helm-didcomm --namespace <release_namespace> \
 ```
 
 ## LetsEncript certificate request
-To create certificate issuer ```--set``` variables below:
+To create certificate ```--set``` variables below:
 
 ```
-letsEncrypt.environment=staging
-letsEncrypt.email=<valid-email>
+email=<valid-email>
 hostname=<didcomm-domain>
 ```

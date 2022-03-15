@@ -1,12 +1,9 @@
-{{- $redis := .Values.redis -}}
-{{- $memcached := .Values.memcached -}}
-{{- $psql_host := .Values.psqlHost -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
   namespace: {{ .Release.Namespace }}
 data:
-  msg_services: redis://{{ $redis }}
-  memcached: {{ $memcached }}
-  db_host: {{ $psql_host }}
+  msg_services: {{ .Values.redis }}
+  memcached: {{ .Values.memcached }}
+  db_host: {{ .Values.psql }}
