@@ -78,6 +78,8 @@ kubectl version --client
 ```
 
 ### Install helm
+Helm [releases](https://github.com/helm/helm/releases)
+
 ```
 wget -O helm https://get.helm.sh/helm-v3.7.1-linux-amd64.tar.gz
 tar -zxf helm
