@@ -65,7 +65,7 @@ Run `rke up` in directory with [cluster.yml](cluster.yml) file created above.
 - `cluster.rkestate` - the state of the cluster so that when you run `rke up` again later RKE knows the current state
 - `kube_config_cluster.yml` - the kubeconfig file that you need to use to manage the cluster with kubectl
 
-Run `mkdir ~/.kube/ && mv kube_config_cluster.yml ~/.kube/config && chmod -R 600 ~/.kube/`\
+Run `mkdir ~/.kube/ && cp kube_config_cluster.yml ~/.kube/config && chmod -R 600 ~/.kube/`\
 to further configure Rancher server like install [cert-manager](https://cert-manager.io/).
 
 ### Install kubectl
