@@ -81,7 +81,7 @@ kubectl version --client
 ```
 wget -O helm https://get.helm.sh/helm-v3.7.1-linux-amd64.tar.gz
 tar -zxf helm
-mv linux-amd64/helm /usr/local/bin/ 77 rm -r linux-amd64
+mv linux-amd64/helm /usr/local/bin/ && rm -r linux-amd64
 helm version
 ```
 
