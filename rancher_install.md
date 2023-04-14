@@ -6,6 +6,8 @@ See the [Rancher requirements](https://rancher.com/docs/rke/latest/en/os/).
 ## Host prerequisites
 * Install Docker via [rancher script](https://github.com/rancher/install-docker) run 
 `curl https://releases.rancher.com/install-docker/20.10.sh | sh`
+
+>:warning: Available Docker version for this set up are 20.10.x
 * Install ntp package `apt install ntp -y`. This prevents errors with certificate validation. 
 * Following sysctl settings must be applied, check it running `sysctl -a | grep net.bridge.bridge-nf-call-iptables`
 * `sed -i 's/[#]*AllowTcpForwarding yes/AllowTcpForwarding yes/g' /etc/ssh/sshd_config`
@@ -25,7 +27,7 @@ Create a pair of ssh keys to install RKE cluster on the host.
 ```
 ssh-keygen -q -f ~/.ssh/rancher_server -t ed25519
 cat ~/.ssh/rancher_server.pub >> ~/.ssh/authorized_keys
-echo "IdentityFile ~/.ssh/rancher_server" > ~/.ssh/config
+echo "IdentityFile ~/.ssh/rancher_server" >> ~/.ssh/config
 systemctl restart sshd.service
 ```
 
@@ -65,7 +67,7 @@ Run `rke up` in directory with [cluster.yml](cluster.yml) file created above.
 - `cluster.rkestate` - the state of the cluster so that when you run `rke up` again later RKE knows the current state
 - `kube_config_cluster.yml` - the kubeconfig file that you need to use to manage the cluster with kubectl
 
-Run `mkdir ~/.kube/ && cp kube_config_cluster.yml ~/.kube/config && chmod -R 600 ~/.kube/`\
+Run `mkdir ~/.kube/ && mv kube_config_cluster.yml ~/.kube/config && chmod -R 600 ~/.kube/`\
 to further configure Rancher server like install [cert-manager](https://cert-manager.io/).
 
 ### Install kubectl
@@ -99,4 +101,4 @@ helm install rancher rancher-stable/rancher --namespace cattle-system --set host
 
 >Access to a Rancher server and get certificate may take few minutes after installing Rancher
 
-For deploy Kubernetes cluster using a node driver see [next steps](rancher_hetzner.md)
+For deploy Kubernetes cluster using a node driver see the [next steps](rancher_hetzner.md)
