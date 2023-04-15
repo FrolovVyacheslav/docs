@@ -5,3 +5,5 @@
 ## Example of [manually deployment Didcomm application](manually_didcomm_deployment) 
 
 ## Deployment [Didcomm application in Rancher](manually_didcomm_deployment/mediator.md)
+
+## GitLab && TeamCity [backup script](backup-script/cron.backup_script.sh)
